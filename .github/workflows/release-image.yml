@@ -62,4 +62,3 @@ jobs:
             CARGO_CONTRACT_GIT=https://github.com/paritytech/cargo-contract
             CARGO_CONTRACT_TAG=${{ github.event.release.tag_name }}
           tags: ${{ env.IMAGE_NAME }}:${{ env.DOCKER_TAG }}
-
