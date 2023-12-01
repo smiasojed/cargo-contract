@@ -44,9 +44,10 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         # if: ${{ github.event_name == 'release' }}
         run: |
-          GH_TAG=${{ github.event.release.tag_name }}
+          # GH_TAG=${{ github.event.release.tag_name }}
+          GH_TAG="v1.0.0-rc.1"
           echo Published github tag: $GH_TAG
-          echo "DOCKER_TAG=${GH_TAG}/test" >> $GITHUB_ENV
+          echo "DOCKER_TAG=${GH_TAG#v}" >> $GITHUB_ENV
 
       - name: Build and push Docker image from release
         if: ${{ github.event_name == 'push' }}
